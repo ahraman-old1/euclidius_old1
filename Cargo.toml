@@ -11,3 +11,5 @@ serde = { version = "1.0.201", features = ["derive"] }
 tokio = { version = "1.37.0", features = ["macros", "rt-multi-thread"] }
 
 diesel = { version = "2.1.6", features = ["postgres"] }
+
+dotenvy = { version = "0.15.7" }
