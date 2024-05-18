@@ -1,3 +1,4 @@
+use axum::{response::Redirect, routing::get, Router};
 use euclidius::controllers::page;
 use tokio::net::TcpListener;
 
@@ -14,6 +15,6 @@ pub fn build_router() -> Router {
         .route("/wiki/:title", get(page::show))
 }
 
-pub async fn root() -> String {
-    "Hello wiki!".into()
+pub async fn root() -> Redirect {
+    Redirect::to("/wiki/main")
 }
