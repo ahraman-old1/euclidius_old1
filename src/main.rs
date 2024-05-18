@@ -1,4 +1,4 @@
-use axum::{routing::get, Router};
+use euclidius::controllers::page;
 use tokio::net::TcpListener;
 
 #[tokio::main]
@@ -9,7 +9,9 @@ async fn main() {
 }
 
 pub fn build_router() -> Router {
-    Router::new().route("/wiki/", get(root))
+    Router::new()
+        .route("/wiki/", get(root))
+        .route("/wiki/:title", get(page::show))
 }
 
 pub async fn root() -> String {
